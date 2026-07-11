@@ -3,11 +3,6 @@
 @import 'tailwindcss';
 
 /* ============================================================
-  FONTS — Nunito (display) + Inter (body)
-   ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
-
-/* ============================================================
   DESIGN TOKENS
   Tailwind v4 uses @theme for custom tokens — these map
   directly to Tailwind utility classes (e.g. bg-brand-blue,
@@ -32,9 +27,9 @@
   --color-surface-dark: var(--color-bg-dark);
   --color-surface-mint: var(--color-mint);
 
-  /* --- Typography --- */
-  --font-display: 'Nunito', system-ui, sans-serif; /* Headings, CTAs */
-  --font-body: 'Inter', system-ui, sans-serif; /* Body copy, UI labels */
+  /* --- Typography Core Mappings --- */
+  --font-display: var(--font-display); /* Headings, CTAs */
+  --font-body: var(--font-body); /* Body copy, UI labels */
 
   /* --- Type scale --- */
   --text-xs: 0.75rem; /* 12px — labels, captions */
@@ -232,10 +227,21 @@
     background-color: var(--color-success);
     border-radius: 50%;
     flex-shrink: 0;
-    /* Checkmark via mask — no extra element needed */
     mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 8l3.5 3.5L13 5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     mask-size: cover;
-    background-clip: padding-box;
+    /* Removed background-clip: padding-box — was preventing background from painting */
+  }
+
+  /* Trust check on dark/coloured backgrounds */
+  .trust-check--on-dark {
+    color: #ffffff;
+  }
+  .trust-check--on-dark::before {
+    background-color: var(--color-success);
+  }
+
+  .trust-check--light::before {
+    background-color: var(--color-success); /* stays green */
   }
 
   /* --- Card --- */
@@ -261,30 +267,30 @@
 /* ============================================================
   ANIMATIONS
    ============================================================ */
+
+/* @keyframes must be top-level — not inside @layer in Tailwind v4 */
+@keyframes cta-breathe {
+  0%,
+  100% {
+    box-shadow: var(--shadow-cta);
+  }
+  50% {
+    box-shadow: 0 6px 36px 0 rgb(255 138 0 / 0.45);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @layer utilities {
-  /* Subtle breathe on the primary CTA — draws the eye without noise */
-  @keyframes cta-breathe {
-    0%,
-    100% {
-      box-shadow: var(--shadow-cta);
-    }
-    50% {
-      box-shadow: 0 6px 36px 0 rgb(255 138 0 / 0.45);
-    }
-  }
-
-  /* Fade + lift — scroll reveal baseline (JS will toggle this) */
-  @keyframes fade-up {
-    from {
-      opacity: 0;
-      transform: translateY(1.25rem);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
   .animate-fade-up {
     animation: fade-up 0.5s ease forwards;
   }

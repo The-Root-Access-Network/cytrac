@@ -1,8 +1,27 @@
 // app/page.tsx
+
+import Header from "@/components/layout/Header";
+import Hero from "@/components/sections/Hero";
+import ValueProposition from "@/components/sections/ValueProposition";
+import TrustSignals from "@/components/sections/TrustSignals";
+import GameFeatures from "@/components/sections/GameFeatures";
+import NewsletterForm from "@/components/sections/NewsletterForm";
+import FAQ from "@/components/sections/FAQ";
+import Footer from "@/components/layout/Footer";
+
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold">CYTRAC Storefront Frontend</h1>
-    </main>
+    <>
+      <Header />
+      <main className="flex-1">
+        <Hero />
+        <ValueProposition />
+        <TrustSignals />
+        <GameFeatures />
+        <NewsletterForm />
+        <FAQ />
+      </main>
+      <Footer />
+    </>
   );
 }
