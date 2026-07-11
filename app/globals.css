@@ -1,26 +1,301 @@
-@import "tailwindcss";
+/* app/globals.css */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@import 'tailwindcss';
+
+/* ============================================================
+  FONTS — Nunito (display) + Inter (body)
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
+
+/* ============================================================
+  DESIGN TOKENS
+  Tailwind v4 uses @theme for custom tokens — these map
+  directly to Tailwind utility classes (e.g. bg-brand-blue,
+  text-cta, font-display).
+   ============================================================ */
+@theme {
+  /* --- Colours --- */
+  --color-cta: #ff8a00; /* Primary action / CTA orange */
+  --color-brand-blue: #0057b8; /* Brand blue — headings, borders */
+  --color-bg-dark: #0b131f; /* Deep navy — dark sections */
+  --color-bg-light: #f4f7fc; /* Soft light blue/gray — default bg */
+  --color-forest: #2f5d50; /* Deep forest green — subheadings */
+  --color-success: #7ac943; /* Leaf green — checkmarks, validation */
+  --color-mint: #eaf7f1; /* Soft mint — badges, alternating blocks */
+  --color-body: #555555; /* Body text — never pure black */
+
+  /* Semantic aliases — use these in components, not the raw tokens above */
+  --color-text-primary: var(--color-brand-blue);
+  --color-text-body: var(--color-body);
+  --color-text-heading: var(--color-bg-dark);
+  --color-surface-default: var(--color-bg-light);
+  --color-surface-dark: var(--color-bg-dark);
+  --color-surface-mint: var(--color-mint);
+
+  /* --- Typography --- */
+  --font-display: 'Nunito', system-ui, sans-serif; /* Headings, CTAs */
+  --font-body: 'Inter', system-ui, sans-serif; /* Body copy, UI labels */
+
+  /* --- Type scale --- */
+  --text-xs: 0.75rem; /* 12px — labels, captions */
+  --text-sm: 0.875rem; /* 14px — fine print, meta */
+  --text-base: 1rem; /* 16px — body */
+  --text-lg: 1.125rem; /* 18px — lead text */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+  --text-5xl: 3rem; /* 48px — Hero heading mobile */
+  --text-6xl: 3.75rem; /* 60px — Hero heading desktop */
+
+  /* --- Spacing scale (extends Tailwind defaults) --- */
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+
+  /* --- Border radius --- */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-pill: 9999px;
+
+  /* --- Shadows --- */
+  --shadow-card: 0 2px 12px 0 rgb(0 87 184 / 0.08);
+  --shadow-cta: 0 4px 24px 0 rgb(255 138 0 / 0.3);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ============================================================
+  BASE STYLES
+   ============================================================ */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.7;
+    color: var(--color-text-body);
+    background-color: var(--color-surface-default);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Headings use the display face */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    color: var(--color-text-heading);
+    line-height: 1.2;
+    font-weight: 800;
+  }
+
+  /* Focus ring — visible and on-brand */
+  :focus-visible {
+    outline: 2px solid var(--color-cta);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Remove focus ring for mouse users */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Smooth anchor scroll offset — accounts for sticky header */
+  :target {
+    scroll-margin-top: 5rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================================
+  COMPONENT LAYER — shared primitives
+   ============================================================ */
+@layer components {
+  /* --- Section wrapper --- */
+  .section-pad {
+    padding-block: clamp(3rem, 8vw, 6rem);
+    padding-inline: clamp(1rem, 5vw, 2rem);
+  }
+
+  .container-content {
+    max-width: 72rem; /* 1152px */
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  /* --- Primary CTA Button --- */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: var(--text-lg);
+    color: #ffffff;
+    background-color: var(--color-cta);
+    padding: 0.875rem 2rem;
+    border-radius: var(--radius-pill);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: var(--shadow-cta);
+    transition:
+      transform 150ms ease,
+      box-shadow 150ms ease,
+      background-color 150ms ease;
+    animation: cta-breathe 3s ease-in-out infinite;
+  }
+
+  .btn-primary:hover {
+    background-color: #e67a00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 32px 0 rgb(255 138 0 / 0.4);
+    animation: none; /* pause breathe on hover — cleaner feel */
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-primary:disabled,
+  .btn-primary[aria-busy='true'] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    animation: none;
+    transform: none;
+  }
+
+  /* --- Secondary / ghost button --- */
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--text-base);
+    color: var(--color-brand-blue);
+    background-color: transparent;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius-pill);
+    border: 2px solid var(--color-brand-blue);
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+      background-color 150ms ease,
+      color 150ms ease;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-brand-blue);
+    color: #ffffff;
+  }
+
+  /* --- Trust signal checkmark badge --- */
+  .trust-check {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--text-sm);
+    color: var(--color-forest);
+  }
+
+  .trust-check::before {
+    content: '';
+    display: inline-block;
+    width: 1.125rem;
+    height: 1.125rem;
+    background-color: var(--color-success);
+    border-radius: 50%;
+    flex-shrink: 0;
+    /* Checkmark via mask — no extra element needed */
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 8l3.5 3.5L13 5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    mask-size: cover;
+    background-clip: padding-box;
+  }
+
+  /* --- Card --- */
+  .card {
+    background-color: #ffffff;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    padding: 1.75rem;
+    border: 1px solid rgb(0 87 184 / 0.07);
+  }
+
+  /* --- Section eyebrow label --- */
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-forest);
+  }
+}
+
+/* ============================================================
+  ANIMATIONS
+   ============================================================ */
+@layer utilities {
+  /* Subtle breathe on the primary CTA — draws the eye without noise */
+  @keyframes cta-breathe {
+    0%,
+    100% {
+      box-shadow: var(--shadow-cta);
+    }
+    50% {
+      box-shadow: 0 6px 36px 0 rgb(255 138 0 / 0.45);
+    }
+  }
+
+  /* Fade + lift — scroll reveal baseline (JS will toggle this) */
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.5s ease forwards;
+  }
+
+  /* Respect reduced motion — always */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
