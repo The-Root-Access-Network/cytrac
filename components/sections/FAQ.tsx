@@ -19,7 +19,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: 'What age group is CYTRAC designed for?',
     answer:
-      'CYTRAC is designed for players aged 10 and up. The scenarios and card language are tailored to be highly accessible to older children and teenagers, while the underlying strategy layers keep adults genuinely engaged. Families playing together tend to get the absolute most out of the experience.',
+      'CYTRAC is designed for players aged 7 and up. The scenarios and card language are tailored to be highly accessible to older children and teenagers, while the underlying strategy layers keep adults genuinely engaged. Families playing together tend to get the absolute most out of the experience.',
   },
   {
     question: 'How long does a game take?',
@@ -29,7 +29,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: 'How many players can play?',
     answer:
-      'CYTRAC supports 2 to 6 players. While it serves as an excellent head-to-head experience for a parent and child, it truly shines with 4 to 6 players around the table—where more players mean deeper debates, shared perspectives, and more laughs.',
+      'CYTRAC supports 2 to 5 players. While it serves as an excellent head-to-head experience for a parent and child, it truly shines with 4 to 5 players around the table—where more players mean deeper debates, shared perspectives, and more laughs.',
   },
   {
     question: 'Do you need any tech knowledge to play?',

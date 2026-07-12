@@ -1,30 +1,42 @@
+// components/ui/PreOrderButton.tsx
+
 'use client';
 
 import { useMarketRoute } from '@/hooks/useMarketRoute';
+import { useIsMounted } from '@/hooks/useIsMounted';
 
 interface PreOrderButtonProps {
   size?: 'default' | 'lg';
   className?: string;
 }
 
+const LoadingSkeleton = ({
+  sizeClass,
+  className,
+}: {
+  sizeClass: string;
+  className: string;
+}) => (
+  <div
+    role='status'
+    aria-label='Loading pre-order link…'
+    className={`btn-primary animate-pulse opacity-60 cursor-wait ${sizeClass} ${className}`}
+  >
+    <span aria-hidden='true'>Loading…</span>
+  </div>
+);
+
 export default function PreOrderButton({
   size = 'default',
   className = '',
 }: PreOrderButtonProps) {
   const { market, isDetecting } = useMarketRoute();
+  const mounted = useIsMounted();
 
   const sizeClass = size === 'lg' ? 'text-lg px-8 py-4' : 'text-sm py-2 px-5';
 
-  if (isDetecting) {
-    return (
-      <div
-        role='status'
-        aria-label='Loading pre-order link…'
-        className={`btn-primary animate-pulse opacity-60 cursor-wait ${sizeClass} ${className}`}
-      >
-        <span aria-hidden='true'>Loading…</span>
-      </div>
-    );
+  if (!mounted || isDetecting) {
+    return <LoadingSkeleton sizeClass={sizeClass} className={className} />;
   }
 
   return (

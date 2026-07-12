@@ -3,6 +3,7 @@
 'use client';
 
 import { useMarketRoute } from '@/hooks/useMarketRoute';
+import { useIsMounted } from '@/hooks/useIsMounted';
 import type { MarketKey } from '@/types/market';
 
 const MARKET_OPTIONS: { key: MarketKey; label: string; flag: string }[] = [
@@ -10,25 +11,24 @@ const MARKET_OPTIONS: { key: MarketKey; label: string; flag: string }[] = [
   { key: 'AFRICA', label: 'Africa', flag: '🌍' },
 ];
 
+const Skeleton = () => (
+  <div
+    role='status'
+    aria-label='Detecting your region…'
+    className='h-9 w-44 animate-pulse rounded-pill bg-mint'
+  />
+);
+
 export default function MarketToggle() {
   const { market, setMarket, isDetecting } = useMarketRoute();
+  const mounted = useIsMounted();
 
-  if (isDetecting) {
-    return (
-      <div
-        aria-label='Detecting your region…'
-        className='h-9 w-48 rounded-pill bg-mint animate-pulse'
-        role='status'
-      />
-    );
-  }
+  if (!mounted || isDetecting) return <Skeleton />;
 
   return (
-    <div className='flex flex-col items-end gap-1'>
-      {/* Label */}
-      <span className='eyebrow text-[10px]'>Shipping to</span>
+    <div className='flex flex-col items-end gap-0.5 sm:flex-row sm:items-center sm:gap-2'>
+      <span className='eyebrow text-[10px] text-forest'>Shipping to</span>
 
-      {/* Segmented pill control */}
       <div
         role='group'
         aria-label='Select your shipping region'
@@ -43,7 +43,7 @@ export default function MarketToggle() {
               onClick={() => setMarket(key)}
               aria-pressed={isActive}
               className={[
-                'flex items-center gap-1.5 rounded-pill px-3 py-1.5 text-sm font-display font-700 transition-all duration-200 cursor-pointer',
+                'flex items-center gap-1.5 rounded-pill px-3 py-1.5 text-sm font-display font-bold transition-all duration-200 cursor-pointer',
                 isActive
                   ? 'bg-cta text-white shadow-cta'
                   : 'text-brand-blue hover:bg-bg-light',

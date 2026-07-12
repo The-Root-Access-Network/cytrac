@@ -36,8 +36,44 @@ const FOOTER_LINKS = {
 
 const SOCIAL_LINKS = [
   {
+    label: 'Facebook',
+    href: 'https://www.facebook.com/share/18yekWBXDP/',
+    icon: (
+      <svg
+        width='18'
+        height='18'
+        viewBox='0 0 18 18'
+        fill='none'
+        aria-hidden='true'
+      >
+        <path
+          d='M17 9a8 8 0 1 0-9.25 7.903V11.5H5.75v-2.5h2V7.25A2.75 2.75 0 0 1 10.5 4.5h1.75v2.5H10.5a.5.5 0 0 0-.5.5V9h2.25l-.375 2.5H10V16.903A8.001 8.001 0 0 0 17 9z'
+          fill='currentColor'
+        />
+      </svg>
+    ),
+  },
+  {
+    label: 'TikTok',
+    href: 'https://www.tiktok.com/@cytracgames',
+    icon: (
+      <svg
+        width='18'
+        height='18'
+        viewBox='0 0 18 18'
+        fill='none'
+        aria-hidden='true'
+      >
+        <path
+          d='M13.5 1.5h-2.25v9.75a2.25 2.25 0 1 1-2.25-2.25c.2 0 .38.03.562.075V6.75a4.5 4.5 0 1 0 3.938 4.5V6.188a6.713 6.713 0 0 0 3.75 1.124V5.063a4.463 4.463 0 0 1-3.75-3.563z'
+          fill='currentColor'
+        />
+      </svg>
+    ),
+  },
+  {
     label: 'X / Twitter',
-    href: 'https://twitter.com/therootaccessnetwork',
+    href: 'https://x.com/cytracgames',
     icon: (
       <svg
         width='18'
@@ -55,7 +91,7 @@ const SOCIAL_LINKS = [
   },
   {
     label: 'Instagram',
-    href: 'https://instagram.com/therootaccessnetwork',
+    href: 'https://www.instagram.com/cytracgames',
     icon: (
       <svg
         width='18'
@@ -86,7 +122,7 @@ const SOCIAL_LINKS = [
   },
   {
     label: 'LinkedIn',
-    href: 'https://linkedin.com/company/therootaccessnetwork',
+    href: 'https://www.linkedin.com/showcase/cytracgames/',
     icon: (
       <svg
         width='18'
@@ -125,7 +161,7 @@ export default function Footer() {
     >
       <div className='section-pad pb-8'>
         <div className='container-content'>
-          <div className='grid grid-cols-1 gap-12 pb-12 md:grid-cols-[1.5fr_1fr_1fr_1fr] md:gap-8 border-b border-white/10'>
+          <div className='grid grid-cols-1 gap-12 border-b border-white/10 pb-12 md:grid-cols-[1.5fr_1fr_1fr_1fr] md:gap-8'>
             {/* Brand column */}
             <div className='flex flex-col gap-5'>
               <Link
@@ -134,15 +170,15 @@ export default function Footer() {
                 className='w-fit group'
               >
                 <Image
-                  src='/images/logo/cytrac-logo-wordmark.png'
-                  alt='CYTRAC'
-                  width={140}
-                  height={48}
-                  className='h-12 w-auto transition-opacity duration-150 group-hover:opacity-80'
+                  src="/images/logo/cytrac-logo-wordmark.png"
+                  alt="CYTRAC"
+                  width={280}
+                  height={96}
+                  className="w-56 h-auto transition-opacity duration-150 group-hover:opacity-80"
                 />
               </Link>
 
-              <p className='text-sm leading-relaxed text-white/50 max-w-xs'>
+              <p className='max-w-xs text-sm leading-relaxed text-white/50'>
                 A cybersecurity board game for families. Built by The Root
                 Access Network to make digital safety education accessible to
                 everyone.
@@ -227,7 +263,7 @@ export default function Footer() {
               Shipping worldwide — including across Africa.{' '}
               <Link
                 href='#preorder-updates'
-                className='underline underline-offset-4 hover:text-white/60 transition-colors'
+                className='underline underline-offset-4 transition-colors hover:text-white/60'
               >
                 Stay updated
               </Link>

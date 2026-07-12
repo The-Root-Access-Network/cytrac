@@ -46,8 +46,8 @@ export default function Hero() {
               aria-label='Key features'
             >
               {[
-                'Ages 10 and up',
-                '2–6 players',
+                'Ages 7 and up',
+                '2–5 players',
                 '45–60 min per game',
                 'No tech required',
               ].map((point) => (
