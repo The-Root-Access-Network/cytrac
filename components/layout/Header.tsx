@@ -26,7 +26,7 @@ export default function Header() {
             alt='CYTRAC'
             width={248}
             height={96}
-            className='w-32 h-auto transition-opacity duration-150 group-hover:opacity-80'
+            className='w-40 h-auto transition-opacity duration-150 group-hover:opacity-80'
             priority
           />
         </Link>

@@ -36,9 +36,9 @@ export default function Hero() {
             </h1>
 
             <p className='max-w-lg text-lg leading-relaxed text-white/70'>
-              CYTRAC is a board game that turns cybersecurity into family game
-              night. Kids and adults learn to spot real threats — phishing,
-              scams, weak passwords — through play, not lectures.
+              CYTRAC is a board game that turns cyber safety into a fun family
+              game night. Kids and adults learn to spot scams, threats, and
+              digital acuity through play.
             </p>
 
             <ul
