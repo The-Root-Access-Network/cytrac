@@ -9,22 +9,22 @@
 
 ## Commands
 
-| Command             | What it does                    |
-| ------------------- | ------------------------------- |
-| `npm run dev`       | Start dev server                |
-| `npm run build`     | Production build                |
-| `npm start`         | Start production server         |
-| `npm run lint`      | Run ESLint (flat config)        |
+| Command         | What it does             |
+| --------------- | ------------------------ |
+| `npm run dev`   | Start dev server         |
+| `npm run build` | Production build         |
+| `npm start`     | Start production server  |
+| `npm run lint`  | Run ESLint (flat config) |
 
 No typecheck, test, or format scripts — `tsc --noEmit` and `prettier --check .` if needed.
 
 ## Env Vars
 
-| Var | Scope | Purpose |
-| --- | ----- | ------- |
-| `NEXT_PUBLIC_SHOPWIRED_URL` | public | INTL checkout (fallback: placeholder) |
-| `NEXT_PUBLIC_BUMPA_URL` | public | AFRICA checkout (fallback: placeholder) |
-| `MAILCHIMP_ACTION_URL` | server | Mailchimp POST endpoint |
+| Var                         | Scope  | Purpose                                 |
+| --------------------------- | ------ | --------------------------------------- |
+| `NEXT_PUBLIC_SHOPWIRED_URL` | public | INTL checkout (fallback: placeholder)   |
+| `NEXT_PUBLIC_BUMPA_URL`     | public | AFRICA checkout (fallback: placeholder) |
+| `MAILCHIMP_ACTION_URL`      | server | Mailchimp POST endpoint                 |
 
 ## Architecture
 
@@ -38,7 +38,7 @@ No typecheck, test, or format scripts — `tsc --noEmit` and `prettier --check .
 
 ## Commits
 
-```
+```bash
 type(scope): description
 ```
 
@@ -46,12 +46,12 @@ type(scope): description
 - **Scope:** Area of the codebase — `ui`, `preorder`, `copy`, `context`, `core`, `components`, `layout`, `assets`, `api`, `docs`.
 - **Description:** Present-tense imperative, capitalised, specific about what changed. Aim for 50-72 chars; use more if needed.
 
-| Commit example | What it communicates |
-|---|---|
+| Commit example                                                                       | What it communicates                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------- |
 | `feat(preorder): create /preorder page with market-aware pricing and CTA components` | New page with client islands for pricing and checkout routing |
-| `fix(ui): route landing page pre-order CTAs to /preorder instead of direct checkout` | Behavioural change to existing buttons |
-| `chore(assets): add rulebook product shot and card deck images` | New binary assets, no code change |
-| `docs(architecture): add phase 2 design doc with routing, security, and media plans` | Documentation-only commit |
+| `fix(ui): route landing page pre-order CTAs to /preorder instead of direct checkout` | Behavioural change to existing buttons                        |
+| `chore(assets): add rulebook product shot and card deck images`                      | New binary assets, no code change                             |
+| `docs(architecture): add phase 2 design doc with routing, security, and media plans` | Documentation-only commit                                     |
 
 Group related changes into separate commits — never mix new pages, component refactors, and asset additions in a single commit.
 
@@ -66,9 +66,11 @@ Group related changes into separate commits — never mix new pages, component r
 Flat config at `eslint.config.mjs` using `eslint-config-next/core-web-vitals` + `eslint-config-next/typescript`. Ignores `.next/`, `out/`, `build/`, `next-env.d.ts`.
 
 <!-- BEGIN:nextjs-agent-rules -->
+
 ## This is NOT the Next.js you know
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+
 <!-- END:nextjs-agent-rules -->
 
 @../.config/opencode/rules.md
