@@ -2,7 +2,7 @@
 
 'use client';
 
-import { useMarketRoute } from '@/hooks/useMarketRoute';
+import Link from 'next/link';
 import { useIsMounted } from '@/hooks/useIsMounted';
 
 interface PreOrderButtonProps {
@@ -30,21 +30,19 @@ export default function PreOrderButton({
   size = 'default',
   className = '',
 }: PreOrderButtonProps) {
-  const { market, isDetecting } = useMarketRoute();
   const mounted = useIsMounted();
 
   const sizeClass = size === 'lg' ? 'text-lg px-8 py-4' : 'text-sm py-2 px-5';
 
-  if (!mounted || isDetecting) {
+  if (!mounted) {
     return <LoadingSkeleton sizeClass={sizeClass} className={className} />;
   }
 
   return (
-    <a
-      href={market.checkoutUrl}
+    <Link
+      href='/preorder'
       className={`btn-primary ${sizeClass} ${className}`}
-      aria-label={`Pre-order CYTRAC — ${market.label} checkout`}
-      rel='noopener'
+      aria-label='Pre-order CYTRAC — view pre-order details'
     >
       Pre-Order Now
       <svg
@@ -62,6 +60,6 @@ export default function PreOrderButton({
           strokeLinejoin='round'
         />
       </svg>
-    </a>
+    </Link>
   );
 }

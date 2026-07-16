@@ -33,14 +33,16 @@ export default function Header() {
 
         {/* Right side */}
         <div className='flex items-center gap-3'>
-          <MarketToggle />
-          <a
-            href='#preorder-updates'
+          <div id='market-toggle'>
+            <MarketToggle />
+          </div>
+          <Link
+            href='/preorder'
             className='btn-primary hidden text-sm md:inline-flex'
             style={{ padding: '0.5rem 1.25rem' }}
           >
-            Pre-Order
-          </a>
+            Pre-Order Now
+          </Link>
         </div>
       </div>
     </header>
