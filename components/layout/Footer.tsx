@@ -5,10 +5,10 @@ import Link from 'next/link';
 
 const FOOTER_LINKS = {
   product: [
-    { label: 'How it works', href: '#how-it-works' },
-    { label: 'Why CYTRAC', href: '#why-cytrac' },
-    { label: 'FAQ', href: '#faq' },
-    { label: 'Pre-order', href: '#preorder-updates' },
+    { label: 'How it works', href: '/#how-it-works' },
+    { label: 'Why CYTRAC', href: '/#why-cytrac' },
+    { label: 'FAQ', href: '/#faq' },
+    { label: 'Pre-order', href: '/preorder' },
   ],
   organisation: [
     {
@@ -18,7 +18,7 @@ const FOOTER_LINKS = {
     },
     {
       label: 'Community programmes',
-      href: 'https://therootaccessnetwork.com',
+      href: 'https://therootaccessnetwork.com/programs/',
       external: true,
     },
     {
@@ -170,11 +170,11 @@ export default function Footer() {
                 className='w-fit group'
               >
                 <Image
-                  src="/images/logo/cytrac-logo-wordmark.png"
-                  alt="CYTRAC"
+                  src='/images/logo/cytrac-logo-wordmark.png'
+                  alt='CYTRAC'
                   width={280}
                   height={96}
-                  className="w-56 h-auto transition-opacity duration-150 group-hover:opacity-80"
+                  className='w-56 h-auto transition-opacity duration-150 group-hover:opacity-80'
                 />
               </Link>
 

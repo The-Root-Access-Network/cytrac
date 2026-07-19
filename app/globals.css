@@ -98,6 +98,34 @@
     font-weight: 800;
   }
 
+  /* Prose links — used in legal pages and long-form content */
+  .prose-styles a {
+    color: var(--color-brand-blue);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 150ms ease;
+  }
+
+  .prose-styles a:hover {
+    color: var(--color-cta);
+  }
+
+  /* Lists inside prose */
+  .prose-styles ul {
+    padding-left: 1.25rem;
+    list-style-type: disc;
+  }
+
+  .prose-styles ul li {
+    padding-left: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose-styles strong {
+    font-weight: 700;
+    color: var(--color-bg-dark);
+  }
+
   /* Focus ring — visible and on-brand */
   :focus-visible {
     outline: 2px solid var(--color-cta);
