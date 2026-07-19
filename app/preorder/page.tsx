@@ -160,7 +160,7 @@ export default function PreorderPage() {
                     className='w-full rounded-md object-cover'
                   />
                   <Image
-                    src='/images/game/cards-yellow-concept.webp'
+                    src='/images/game/cards-yellow-concept-back.webp'
                     alt='Yellow concept card deck'
                     width={192}
                     height={134}
@@ -327,7 +327,7 @@ export default function PreorderPage() {
               {[
                 {
                   label: 'Estimated delivery',
-                  detail: '8–10 weeks from order to your door',
+                  detail: '12–16 weeks from order to your door',
                 },
                 {
                   label: 'Secure payment',
