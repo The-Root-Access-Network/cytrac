@@ -260,7 +260,7 @@ export default function Footer() {
               © {currentYear} The Root Access Network. All rights reserved.
             </p>
             <p className='text-xs text-white/35'>
-              Shipping worldwide — including across Africa.{' '}
+              Shipping worldwide — including across Nigeria and neighbouring countries.{' '}
               <Link
                 href='#preorder-updates'
                 className='underline underline-offset-4 transition-colors hover:text-white/60'

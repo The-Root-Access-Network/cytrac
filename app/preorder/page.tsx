@@ -335,7 +335,7 @@ export default function PreorderPage() {
                 },
                 {
                   label: 'Ships worldwide',
-                  detail: 'Including across Africa via regional logistics',
+                  detail: 'Including across Nigeria and neighbouring countries',
                 },
                 {
                   label: 'Instant confirmation',
@@ -369,7 +369,7 @@ export default function PreorderPage() {
             </h2>
 
             <p className='max-w-lg leading-relaxed text-white/70'>
-              Join families across Africa and beyond who are already building
+              Join families across Nigeria and beyond who are already building
               better digital safety habits — one game night at a time.
             </p>
 

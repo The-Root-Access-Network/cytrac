@@ -39,7 +39,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: 'Where do you ship to?',
     answer:
-      'We ship worldwide. For our customers across Africa—including Nigeria, Ghana, Kenya, and South Africa—orders are routed directly through our regional logistics hub for significantly faster delivery timelines and local payment processing. International orders are handled via our UK/US storefronts. Estimated delivery schedules are calculated at checkout.',
+      'We ship worldwide. For our customers in Nigeria—and neighbouring countries across Africa—orders are routed through our Nigeria-based logistics hub for faster delivery and local payment processing. International orders are handled via our UK/US storefronts. Estimated delivery schedules are calculated at checkout.',
   },
   {
     question: 'When will my pre-order ship?',
@@ -49,7 +49,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: 'What payment methods do you accept?',
     answer:
-      'International storefronts support all major global credit and debit networks. Our African regional checkout fully accommodates card networks, direct bank transfers, and local mobile money services depending on your location. All transactions are fully encrypted and securely processed; we never store your payment credentials.',
+      'International storefronts support all major global credit and debit networks. Our Nigeria checkout fully accommodates card networks, direct bank transfers, and local mobile money services. All transactions are fully encrypted and securely processed; we never store your payment credentials.',
   },
   {
     question: 'Can I buy CYTRAC as a gift?',

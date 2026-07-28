@@ -72,7 +72,7 @@ export default function Hero() {
               <span className='font-semibold text-white/70'>
                 The Root Access Network
               </span>{' '}
-              — cybersecurity educators across Africa and beyond.
+              — cybersecurity educators in Nigeria and beyond.
             </p>
           </div>
 

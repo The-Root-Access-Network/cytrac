@@ -73,7 +73,7 @@ export default function PrivacyPage() {
                   <p>
                     When you place a pre-order, you are redirected to one of our
                     checkout platforms — ShopWired (for international orders) or
-                    Bumpa (for African market orders). We do not collect or
+                    Bumpa (for Nigeria market orders). We do not collect or
                     store your payment details. All payment processing is
                     handled by those platforms and their payment partners
                     (including Paystack). Please refer to their respective
@@ -148,7 +148,7 @@ export default function PrivacyPage() {
                   </li>
                   <li>
                     <strong>Bumpa / Paystack</strong> — checkout and payment
-                    processing for African market orders.
+                    processing for Nigeria market orders.
                   </li>
                 </ul>
                 <p>
