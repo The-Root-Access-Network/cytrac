@@ -12,7 +12,7 @@ export const MARKETS: Record<MarketKey, Market> = {
   },
   AFRICA: {
     key: "AFRICA",
-    label: "Africa Regional",
+    label: "Nigeria",
     currency: "NGN",
     checkoutUrl: process.env.NEXT_PUBLIC_BUMPA_URL || "https://bumpa-placeholder.com",
   },

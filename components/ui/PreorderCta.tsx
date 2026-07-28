@@ -5,7 +5,6 @@
 import Link from 'next/link';
 import { useMarketRoute } from '@/hooks/useMarketRoute';
 import { useIsMounted } from '@/hooks/useIsMounted';
-import NotifyMeButton from './NotifyMeButton';
 
 interface PreorderCtaProps {
   variant?: 'hero' | 'final';
@@ -29,37 +28,31 @@ export default function PreorderCta({ variant = 'hero' }: PreorderCtaProps) {
     return <LoadingSkeleton />;
   }
 
-  const isAfrica = market.key === 'AFRICA';
-
   return (
     <div className='flex flex-col gap-3'>
-      {isAfrica ? (
-        <NotifyMeButton />
-      ) : (
-        <a
-          href={market.checkoutUrl}
-          className='btn-primary text-lg px-8 py-4'
-          aria-label={`Pre-order CYTRAC — ${market.label} checkout`}
-          rel='noopener'
+      <a
+        href={market.checkoutUrl}
+        className='btn-primary text-lg px-8 py-4'
+        aria-label={`Pre-order CYTRAC — ${market.label} checkout`}
+        rel='noopener'
+      >
+        Pre-Order Now
+        <svg
+          aria-hidden='true'
+          width='18'
+          height='18'
+          viewBox='0 0 18 18'
+          fill='none'
         >
-          Pre-Order Now
-          <svg
-            aria-hidden='true'
-            width='18'
-            height='18'
-            viewBox='0 0 18 18'
-            fill='none'
-          >
-            <path
-              d='M3 9h12M10 4l5 5-5 5'
-              stroke='currentColor'
-              strokeWidth='2'
-              strokeLinecap='round'
-              strokeLinejoin='round'
-            />
-          </svg>
-        </a>
-      )}
+          <path
+            d='M3 9h12M10 4l5 5-5 5'
+            stroke='currentColor'
+            strokeWidth='2'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+          />
+        </svg>
+      </a>
 
       {variant === 'hero' && (
         <p className='text-sm text-white/50'>
@@ -76,8 +69,8 @@ export default function PreorderCta({ variant = 'hero' }: PreorderCtaProps) {
       {variant === 'final' && (
         <>
           <p className='text-sm text-white/50'>
-            {isAfrica
-              ? "We'll notify you as soon as the African market checkout is live."
+            {market.key === 'AFRICA'
+              ? 'Pre-order now — deliverable within Nigeria'
               : 'Free shipping on orders over £40 to qualifying regions.'}
           </p>
           <span className='trust-check trust-check--on-dark'>

@@ -57,16 +57,16 @@ Sending customers from cytracgames.com to `therootaccessnetwork-limited.myshopwi
 
 No cart API. No embedded checkout. Clean redirect. ShopWired handles payment, fulfilment, and order management.
 
-### AFRICA (Nigeria, Ghana, Kenya, South Africa, Rwanda, Egypt, Morocco, Cameroon, Côte d'Ivoire, Senegal)
+### AFRICA (Nigeria v1, expandable)
 
 - User lands on cytracgames.com
-  - → MarketToggle shows Africa (auto-detected or manually set)
+  - → MarketToggle shows Africa (auto-detected or manually set), routes to Bumpa
   - → Clicks Pre-Order CTA
   - → /preorder page
   - → Clicks final CTA
-  - → Redirected to Bumpa/Paystack checkout URL (TBD)
+  - → Redirected to Bumpa checkout URL
 
-Status: Bumpa setup not started. AFRICA CTA shows placeholder or "notify me" state until URL is confirmed.
+Status: Bumpa checkout live at [https://cytracgames.bumpa.shop/products/cytrac-board-game/5125254?location=350821](https://cytracgames.bumpa.shop/products/cytrac-board-game/5125254?location=350821).
 
 ---
 
@@ -196,8 +196,8 @@ Rate limiting: not implemented. Add Cloudflare Turnstile post-launch if spam bec
 
 | Variable                  | Scope       | Current Value | Purpose                 |
 | ------------------------- | ----------- | ------------- | ----------------------- |
-| NEXT_PUBLIC_SHOPWIRED_URL | Public      | placeholder   | INTL checkout URL       |
-| NEXT_PUBLIC_BUMPA_URL     | Public      | placeholder   | AFRICA checkout URL     |
+| NEXT_PUBLIC_SHOPWIRED_URL | Public      | set           | INTL checkout URL       |
+| NEXT_PUBLIC_BUMPA_URL     | Public      | set           | AFRICA checkout URL     |
 | MAILCHIMP_ACTION_URL      | Server-only | set           | Mailchimp form endpoint |
 
 NEXT_PUBLIC_SHOPWIRED_URL target value once subdomain is configured: [https://shop.cytracgames.com/checkout/basket](https://shop.cytracgames.com/checkout/basket)
@@ -210,7 +210,7 @@ NEXT_PUBLIC_SHOPWIRED_URL target value once subdomain is configured: [https://sh
 | ----------------------------- | --------------------------------------------- |
 | Embedded checkout             | ShopWired has no Storefront API               |
 | Cart session management       | Not needed for redirect model                 |
-| Custom AFRICA checkout        | Requires Bumpa setup — separate project       |
+| Custom AFRICA checkout        | Bumpa store live at cytracgames.bumpa.shop    |
 | Medusa/headless migration     | Deferred until ShopWired migration decision   |
 | Vercel KV rate limiting       | Turnstile covers the threat model when needed |
 | Commerce adapter abstractions | Premature until headless is confirmed         |
@@ -223,7 +223,7 @@ NEXT_PUBLIC_SHOPWIRED_URL target value once subdomain is configured: [https://sh
 - [ ] NEXT_PUBLIC_SHOPWIRED_URL set to shop.cytracgames.com checkout URL in Vercel environment variables
 - [ ] /preorder page built and tested on cytrac.vercel.app
 - [ ] INTL pre-order flow tested end-to-end (Next.js → ShopWired checkout)
-- [ ] AFRICA market shows appropriate placeholder state
+- [x] AFRICA market routes to Bumpa checkout (placeholder replaced)
 - [ ] Team and founder aligned on DNS switch timing
 - [ ] DNS switched: cytracgames.com → Vercel
 - [ ] SSL confirmed on both cytracgames.com and shop.cytracgames.com

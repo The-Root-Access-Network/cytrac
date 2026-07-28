@@ -20,11 +20,11 @@ No typecheck, test, or format scripts — `tsc --noEmit` and `prettier --check .
 
 ## Env Vars
 
-| Var                         | Scope  | Purpose                                 |
-| --------------------------- | ------ | --------------------------------------- |
-| `NEXT_PUBLIC_SHOPWIRED_URL` | public | INTL checkout (fallback: placeholder)   |
-| `NEXT_PUBLIC_BUMPA_URL`     | public | AFRICA checkout (fallback: placeholder) |
-| `MAILCHIMP_ACTION_URL`      | server | Mailchimp POST endpoint                 |
+| Var                         | Scope  | Purpose                                        |
+| --------------------------- | ------ | ---------------------------------------------- |
+| `NEXT_PUBLIC_SHOPWIRED_URL` | public | INTL checkout (live: intl.cytracgames.com)    |
+| `NEXT_PUBLIC_BUMPA_URL`     | public | AFRICA checkout (live: cytracgames.bumpa.shop) |
+| `MAILCHIMP_ACTION_URL`      | server | Mailchimp POST endpoint                        |
 
 ## Architecture
 

@@ -4,7 +4,7 @@
 
 Custom Next.js landing page and market routing system for the CYTRAC cybersecurity family board game. Built by The Root Access Network.
 
-[cytracgames.com](cytracgames.com) is the marketing and conversion hub. Checkout is handled off-site by ShopWired (INTL) and Bumpa/Paystack (AFRICA, pending).
+[cytracgames.com](cytracgames.com) is the marketing and conversion hub. Checkout is handled off-site by ShopWired (INTL) and Bumpa (Nigeria, expandable to Africa).
 
 - Phase 1 (complete): Full landing page UI, market routing, newsletter form.
 - Phase 2 (current): /preorder page, real checkout URLs, DNS switch prep.
@@ -85,18 +85,18 @@ This is the most critical feature. Read this before touching any CTA.
 
 ### Market Keys
 
-- "INTL" | "AFRICA" — always use MarketKey type, never raw strings.
+- "INTL" | "AFRICA" — always use MarketKey type, never raw strings. AFRICA market currently serves Nigeria (v1).
 
-### Africa Country Scope (v1)
+### Nigeria Country Scope (v1, expandable)
 
-- NG, GH, KE, ZA, RW, EG, MA, CM, CI, SN
+- NG (primary), with broad Africa detection routing to Bumpa
 
 ### Checkout URLs
 
 Set in environment variables — never hardcoded in source.
 
 - `NEXT_PUBLIC_SHOPWIRED_URL` → INTL market checkout
-- `NEXT_PUBLIC_BUMPA_URL` → AFRICA market checkout (placeholder)
+- `NEXT_PUBLIC_BUMPA_URL` → AFRICA/Nigeria market checkout (live: cytracgames.bumpa.shop)
 
 ### Phase 3 Upgrade (not yet implemented)
 
@@ -271,7 +271,7 @@ Raise with the team/Claude before acting on:
 
 4. Pre-launch smoke test on cytrac.vercel.app
    - INTL pre-order flow: landing → /preorder → ShopWired checkout
-   - AFRICA pre-order flow: landing → /preorder → placeholder state
+   - AFRICA pre-order flow: landing → /preorder → Bumpa checkout
    - Newsletter form submission
    - MarketToggle switching
 

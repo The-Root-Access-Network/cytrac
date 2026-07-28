@@ -13,7 +13,7 @@ const TRUST_ITEMS = [
   },
   {
     label: 'Worldwide shipping',
-    detail: 'We ship to over 50 countries, including across Africa.',
+    detail: 'We ship to over 50 countries, including across Nigeria and neighbouring countries.',
   },
   {
     label: 'Family tested',
